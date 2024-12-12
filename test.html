@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    svg {
+      pointer-events: none;
+      /* 전체 SVG는 이벤트를 받지 않음 */
+    }
+
+    svg path {
+      pointer-events: auto;
+      /* path는 이벤트를 받을 수 있음 */
+      cursor: pointer;
+      /* 마우스 포인터 추가 */
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // path에만 마우스 이벤트 적용
+    $('svg path').on('mouseenter', function () {
+      $(this).css('stroke', 'red'); // 마우스 진입 시 경로 색 변경
+    });
+
+    $('svg path').on('mouseleave', function () {
+      $(this).css('stroke', 'black'); // 마우스 벗어날 때 색 복원
+    });
+  </script>
+</head>
+
+<body>
+  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 10 H 190 V 190 H 10 Z" stroke="black" fill="none" stroke-width="2" />
+  </svg>
+</body>
+
+</html>
