@@ -19,8 +19,8 @@ $(function () {
   const worksPathLength = $worksSvgPath[0].getTotalLength();
 
   // about SVG
-  const $aboutSvgPath = $('#header .gnb li:nth-child(2) a svg path');
-  const aboutPathLength = $aboutSvgPath[0].getTotalLength();
+  // const $aboutSvgPath = $('#header .gnb li:nth-child(2) a svg path');
+  // const aboutPathLength = $aboutSvgPath[0].getTotalLength();
 
   // 초기 설정: stroke-dasharray와 stroke-dashoffset 초기화
   $worksSvgPath.css({
@@ -29,11 +29,11 @@ $(function () {
     transition: 'stroke-dashoffset 0.5s ease',
   });
 
-  $aboutSvgPath.css({
-    'stroke-dasharray': aboutPathLength,
-    'stroke-dashoffset': aboutPathLength,
-    transition: 'stroke-dashoffset 0.5s ease',
-  });
+  // $aboutSvgPath.css({
+  //   'stroke-dasharray': aboutPathLength,
+  //   'stroke-dashoffset': aboutPathLength,
+  //   transition: 'stroke-dashoffset 0.5s ease',
+  // });
 
   // works 애니메이션
   $('#header .gnb li:nth-child(1) a').on('mouseenter', function () {
@@ -46,14 +46,14 @@ $(function () {
   });
 
   // about 애니메이션
-  $('#header .gnb li:nth-child(2) a').on('mouseenter', function () {
-    $aboutSvgPath.css('stroke-dashoffset', 0);
-    // console.log('menuother');
-  });
+  // $('#header .gnb li:nth-child(2) a').on('mouseenter', function () {
+  //   $aboutSvgPath.css('stroke-dashoffset', 0);
+  //   // console.log('menuother');
+  // });
 
-  $('#header .gnb li:nth-child(2) a').on('mouseleave', function () {
-    $aboutSvgPath.css('stroke-dashoffset', aboutPathLength);
-  });
+  // $('#header .gnb li:nth-child(2) a').on('mouseleave', function () {
+  //   $aboutSvgPath.css('stroke-dashoffset', aboutPathLength);
+  // });
 
   // Footer 시간 표시
   // Day.js 플러그인 초기화

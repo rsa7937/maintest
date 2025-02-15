@@ -27,8 +27,55 @@ $(function () {
     $svgPath.css({
       'stroke-dasharray': pathLength,
       'stroke-dashoffset': pathLength,
-      transition: 'stroke-dashoffset 0.4s 0.3s ease-in-out',
+      transition: 'stroke-dashoffset 0.4s 0.2s ease-in-out',
     });
+
+    $(visualEl[0])
+      .find('.line .tag')
+      .on('mouseenter', function () {
+        $(visualEl[0]).find('.line svg:nth-of-type(1) path').css('stroke-dashoffset', 0);
+        console.log('in');
+        $(visualEl[0]).find('.line .tag svg:nth-of-type(1)').css({
+          'clip-path': 'inset(0% 0% 0% 0%)',
+        });
+
+        $(visualEl[0]).find('.line > svg:nth-of-type(1) path ').css({ stroke: '#0086FF' });
+        $(visualEl[0]).find('.line .tag svg:nth-of-type(1) rect').css({ fill: '#0086FF' });
+        $(visualEl[0]).find('.line .tag svg:nth-of-type(1) path + path').css({ fill: '#0086FF' });
+        $(visualEl[0]).find('.line .tag1 svg:nth-of-type(1) rect').css({ fill: '#0086FF' });
+        $(visualEl[0]).find('.line .tag1 svg:nth-of-type(1) path + path').css({ fill: '#0086FF' });
+      });
+
+    const SIpathLength = $(visualEl[0]).find('.line svg:nth-of-type(1) > path')[0].getTotalLength();
+    $(visualEl[0])
+      .find('.line .tag')
+      .on('mouseleave', function () {
+        $(visualEl[0]).find('.line svg:nth-of-type(1) > path').css('stroke-dashoffset', SIpathLength);
+        console.log('out');
+        $(visualEl[0]).find('.line .tag svg:nth-of-type(1)').css('clip-path', 'inset(100% 0% 0% 0%)');
+      });
+
+    $(visualEl[0])
+      .find('.line .tag1')
+      .on('mouseenter', function () {
+        $(visualEl[0]).find('.line svg:nth-of-type(1) path').css('stroke-dashoffset', 0);
+        console.log('in');
+        $(visualEl[0]).find('.line .tag svg:nth-of-type(1)').css('clip-path', 'inset(0% 0% 0% 0%)');
+
+        $(visualEl[0]).find('.line > svg:nth-of-type(1) path ').css({ stroke: '#FC3F05' });
+        $(visualEl[0]).find('.line .tag svg:nth-of-type(1) rect').css({ fill: '#FC3F05' });
+        $(visualEl[0]).find('.line .tag svg:nth-of-type(1) path + path').css({ fill: '#FC3F05' });
+        $(visualEl[0]).find('.line .tag1 svg:nth-of-type(1) rect').css({ fill: '#FC3F05' });
+        $(visualEl[0]).find('.line .tag1 svg:nth-of-type(1) path + path').css({ fill: '#FC3F05' });
+      });
+
+    $(visualEl[0])
+      .find('.line .tag1')
+      .on('mouseleave', function () {
+        $(visualEl[0]).find('.line svg:nth-of-type(1) > path').css('stroke-dashoffset', SIpathLength);
+        console.log('out');
+        $(visualEl[0]).find('.line .tag svg:nth-of-type(1)').css('clip-path', 'inset(0% 0% 100% 0%)');
+      });
 
     $(visualEl[index])
       .find('.line .tag')
@@ -43,27 +90,6 @@ $(function () {
         console.log('out');
       });
   });
-
-  // lvBarEl.forEach((item, index) => {
-  //   const lvWidthArr = ['26rem', '24rem', '20rem', '20rem', '21rem', '22rem', '16rem', '24rem', '20rem'];
-  //   // lvBarEl[index].css('width', lvWidthArr[index]);
-  //   console.log(lvBarEl[index]);
-  //   $(lvBarEl[index]).css('width', `${lvWidthArr[index]}`);
-
-  //   gsap.from(lvBarEl[index], {
-  //     width: 0,
-  //     duration: 0.2,
-  //     stagger: 0.2,
-  //     scrollTrigger: {
-  //       trigger: '.profile',
-  //       // markers: true,
-  //       start: 'top 100%',
-  //       end: 'bottom 60%',
-  //       toggleActions: 'play none restart none',
-  //       scrub: 1,
-  //     },
-  //   });
-  // });
 
   // init Masonry
 
